@@ -1,0 +1,685 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="anonymous">
+
+    <title>VC Demo Page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
+        type='text/css'>
+    <link
+        href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+
+    <script defer src="./js/fontawesome.all.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.js"></script>
+    <script src="js/interp.js"></script>
+
+</head>
+
+<body id="page-top">
+
+    <!-- <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+		<div class="container">
+			<a class="navbar-brand js-scroll-trigger" href="#page-top">LDM-SVC</a>
+			<button class="navbar-toggler navbar-toggler-right font-weight-bold text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#abstract">Abstract</a>
+					<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#s2s">Seen-to-Seen</a></li>
+					<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#u2s">Zero-shot Unseen-to-Unseen</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav> -->
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+        <div class="container" style="padding-bottom:10px">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>VC Demo</h1>
+                        <span class="subheading">
+                            Mitigating Timbre Leakage with a Universal Semantic Dictionary-Based Content Feature Re-expression Method for Voice Conversion
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-14 col-md-12 mx-auto">
+                <div class="post-preview" id="abstract">
+                    <h2 class="post-title">
+                        Abstract
+                    </h2>
+                    <p>
+                        
+    Voice conversion (VC) aims to transform source speech into a target voice conditioned on source content representation and target timbre, keeping the content unchanged. Since content representations often contain timbre information, timbre leakage from the source speech decreases the similarity to the target speaker. To address this issue, we propose a general method for constructing a universal semantic dictionary for content extractor. Each entry in this dictionary is a representation of a certain phoneme class, which is derived through statistical computation using speech from various speakers. Therefore, the dictionary is a stable and speaker-independent semantic set. A Content Feature Re-expression (CFR) method is further proposed to obtain timbre-free and contextual content representation. Specifically, each frame of the original content feature is re-expressed as a weighted linear combination of the dictionary entries using the corresponding phoneme/speech unit posterior as the weights. The resulting representation is stable and timbre-free. Experiments on different VC frameworks demonstrate that the proposed CFR can effectively mitigate timbre leakage and improve speaker similarity. 
+                        
+                    </p>
+                </div>
+                <!-- ![arch](images/pic1.png) -->
+                <!-- <img src="images/pic1.png" alt="ldm-svc" width="1200"> -->
+                <!-- experience start -->
+                
+                <!-- one experience -->
+                <div class="post-preview">
+                    <h2 class="post-title">
+                        VITS
+                    </h2>
+                    
+                    <!-- one table -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Source</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Conversion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/0/0_source.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/0/0_prompt.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                BNF<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/0/0_base.wav>
+                                </audio>
+                                <br>
+                                S-Unit<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/0/0_soft.wav>
+                                </audio>
+                                <br>
+                                U-Dict<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/0/0_dict.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/1/1_source.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/1/1_prompt.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                BNF<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/1/1_base.wav>
+                                </audio>
+                                <br>
+                                S-Unit<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/1/1_soft.wav>
+                                </audio>
+                                <br>
+                                U-Dict<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/1/1_dict.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <h3 class="post-meta" id="s2s">
+                                PPG
+                            </h3>
+                        </tbody>
+                    </table>
+
+                    <!-- one table -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Source</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Conversion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hubert/0/0_source.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hubert/0/0_prompt.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                MLF<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hubert/0/0_base.wav>
+                                </audio>
+                                <br>
+                                S-Unit<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hubert/0/0_soft.wav>
+                                </audio>
+                                <br>
+                                U-Dict<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hubert/0/0_dict.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hubert/1/1_source.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hubert/1/1_prompt.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                MLF<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hubert/1/1_base.wav>
+                                </audio>
+                                <br>
+                                S-Unit<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hubert/1/1_soft.wav>
+                                </audio>
+                                <br>
+                                U-Dict<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hubert/1/1_dict.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <h3 class="post-meta" id="s2s">
+                                HuBERT
+                            </h3>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <!-- one experience -->
+                <div class="post-preview">
+                    <h2 class="post-title">
+                        LM Model
+                    </h2>
+                    
+                    <!-- one table -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Source</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Conversion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_ppg/0/0_source.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_ppg/0/0-prompt.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                BNF<br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_ppg/0/0_base.wav>
+                                </audio>
+                                <br>
+                                S-Unit<br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_ppg/0/0_soft.wav>
+                                </audio>
+                                <br>
+                                U-Dict<br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_ppg/0/0_dict.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_ppg/1/1_source.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_ppg/1/1_prompt.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                BNF<br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_ppg/1/1_base.wav>
+                                </audio>
+                                <br>
+                                S-Unit<br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_ppg/1/1_soft.wav>
+                                </audio>
+                                <br>
+                                U-Dict<br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_ppg/1/1_dict.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <h3 class="post-meta" id="s2s">
+                                PPG
+                            </h3>
+                        </tbody>
+                    </table>
+
+                    <!-- one table -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Source</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Conversion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_hubert/0/0_source.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_hubert/0/0_prompt.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                MLF<br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_hubert/0/0_base.wav>
+                                </audio>
+                                <br>
+                                S-Unit<br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_hubert/0/0_soft.wav>
+                                </audio>
+                                <br>
+                                U-Dict<br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_hubert/0/0_dict.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_hubert/1/1_source.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_hubert/1/1_prompt.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                MLF<br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_hubert/1/1_base.wav>
+                                </audio>
+                                <br>
+                                S-Unit<br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_hubert/1/1_soft.wav>
+                                </audio>
+                                <br>
+                                U-Dict<br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm_hubert/1/1_dict.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <h3 class="post-meta" id="s2s">
+                                HuBERT
+                            </h3>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <!-- one experience -->
+                <div class="post-preview">
+                    <h2 class="post-title">
+                        Diffusion Model
+                    </h2>
+                    
+                    <!-- one table -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Source</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Conversion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/M2F/src/M2F-0.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/M2F/ref/M2F-0.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                BNF<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/M2F/0/M2F-0.wav>
+                                </audio>
+                                <br>
+                                S-Unit<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/M2F/1/M2F-0.wav>
+                                </audio>
+                                <br>
+                                U-Dict<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/M2F/2/M2F-0.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/M2F/src/M2F-62.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/M2F/ref/M2F-62.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                BNF<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/M2F/0/M2F-62.wav>
+                                </audio>
+                                <br>
+                                S-Unit<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/M2F/1/M2F-62.wav>
+                                </audio>
+                                <br>
+                                U-Dict<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/M2F/2/M2F-62.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/M2F/src/M2F-65.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/M2F/ref/M2F-65.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                BNF<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/M2F/0/M2F-65.wav>
+                                </audio>
+                                <br>
+                                S-Unit<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/M2F/1/M2F-65.wav>
+                                </audio>
+                                <br>
+                                U-Dict<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/M2F/2/M2F-65.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/F2M/src/F2M-0.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/F2M/ref/F2M-0.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                BNF<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/F2M/0/F2M-0.wav>
+                                </audio>
+                                <br>
+                                S-Unit<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/F2M/1/F2M-0.wav>
+                                </audio>
+                                <br>
+                                U-Dict<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/F2M/2/F2M-0.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/F2M/src/F2M-12.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/F2M/ref/F2M-12.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                BNF<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/F2M/0/F2M-12.wav>
+                                </audio>
+                                <br>
+                                S-Unit<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/F2M/1/F2M-12.wav>
+                                </audio>
+                                <br>
+                                U-Dict<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/F2M/2/F2M-12.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/F2M/src/F2M-31.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/F2M/ref/F2M-31.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                BNF<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/F2M/0/F2M-31.wav>
+                                </audio>
+                                <br>
+                                S-Unit<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/F2M/1/F2M-31.wav>
+                                </audio>
+                                <br>
+                                U-Dict<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/F2M/2/F2M-31.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <h3 class="post-meta" id="s2s">
+                                PPG
+                            </h3>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <!-- experience end -->
+            </div>
+        </div>
+</body>
+
+</html>
