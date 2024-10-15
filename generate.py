@@ -2,7 +2,7 @@ from temple import one_audio_block_temple, table_temple, experiment_temple, page
 import os
 import glob
 abstract = """
-    Voice conversion (VC) aims to transform source speech into a target voice conditioned on source content representation and target timbre, keeping the content unchanged. Since content representations often contain timbre information, timbre leakage from the source speech decreases the similarity to the target speaker. To address this issue, we propose a general method for constructing a universal semantic dictionary for content extractor. Each entry in this dictionary is a representation of a certain phoneme class, which is derived through statistical computation using speech from various speakers. Therefore, the dictionary is a stable and speaker-independent semantic set. A Content Feature Re-expression (CFR) method is further proposed to obtain timbre-free and contextual content representation. Specifically, each frame of the original content feature is re-expressed as a weighted linear combination of the dictionary entries using the corresponding phoneme/speech unit posterior as the weights. The resulting representation is stable and timbre-free. Experiments on different VC frameworks demonstrate that the proposed CFR can effectively mitigate timbre leakage and improve speaker similarity. 
+    Voice conversion (VC) aims to transform source speech into a target voice based on the source content representation and target timbre while keeping the content unchanged. However, since the timbre information of the source speaker is inherently embedded in the representations of the source speech, this results in significant timbre leakage during voice conversion (VC), which substantially decreases the similarity to the target speaker. To address this issue, we propose a novel and general method called Universal Semantic Matching (USM) for constructing a universal semantic dictionary to be used with a content extractor. Each entry in this dictionary represents a specific phoneme class, derived through statistical computation using speech from various speakers. Consequently, the dictionary serves as a stable and speaker-independent semantic set. Based on this universal semantic dictionary, we further propose a Content Feature Re-expression (CFR) method within USM to obtain timbre-free and contextual content representations. Specifically, each frame of the original content feature is re-expressed as a weighted linear combination of the dictionary entries using the corresponding phoneme/speech unit posterior as the weights. The resulting representation is inherently timbre-free. Extensive experiments across various VC frameworks strongly demonstrate that the proposed approach can effectively mitigate timbre leakage and markedly improve the similarity to the target speaker.
                         """
 def one_audio_block(path,name=None):
     if not name:
@@ -180,7 +180,7 @@ if __name__ == "__main__":
         model_name_mapper=[
             ("_base","BNF"),
             ("_soft","S-Unit"),
-            ("_dict","U-Dict")
+            ("_dict","USM")
         ],
         experiment_name = "VITS"
     )
@@ -190,14 +190,14 @@ if __name__ == "__main__":
         model_name_mapper=[
             ("_base","BNF"),
             ("_soft","S-Unit"),
-            ("_dict","U-Dict")
+            ("_dict","USM")
         ],
         experiment_name = "LM Model"
     )
         
     exper_html += generate_exper2(
         folder_dir="samples/diffusion",
-        model_name_list=["BNF","S-Unit","U-Dict"],
+        model_name_list=["BNF","S-Unit","USM"],
         experiment_name = "Diffusion Model"
     )
 
@@ -205,7 +205,7 @@ if __name__ == "__main__":
         exper_html,
         title="VC Demo Page",
         big_header="VC Demo",
-        sub_header="Mitigating Timbre Leakage with a Universal Semantic Dictionary-Based Content Feature Re-expression Method for Voice Conversion",
+        sub_header="Mitigating Timbre Leakage with Universal Semantic Mapping for Voice Conversion",
         abstract=abstract,
         html_path="index.html"
     )
