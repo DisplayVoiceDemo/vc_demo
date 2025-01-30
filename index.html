@@ -66,7 +66,7 @@
                     <div class="site-heading">
                         <h1>VC Demo</h1>
                         <span class="subheading">
-                            Mitigating Timbre Leakage with Universal Semantic Mapping for Voice Conversion
+                            Mitigating Timbre Leakage with Universal Semantic Mapping Residual Block for Voice Conversion
                         </span>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                     </h2>
                     <p>
                         
-    Voice conversion (VC) transforms source speech into a target voice by preserving the content while replacing the timbre of the source speaker with that of the target speaker. However, timbre information from the source speaker is inherently embedded in the content representations, causing significant timbre leakage and reducing similarity to the target speaker. To address this, we propose 	extbf{Universal Semantic Matching (USM)}, a general method for building a universal semantic dictionary with a content extractor. Each dictionary entry represents a phoneme class, computed statistically using speech from multiple speakers, creating a stable, speaker-independent semantic set. Additionally, we introduce Content Feature Re-expression (CFR) within USM to obtain timbre-free and contextual content representations by expressing each content frame as a weighted linear combination of dictionary entries using corresponding phoneme posteriors as weights. Extensive experiments across various VC frameworks demonstrate that our approach effectively mitigates timbre leakage and significantly improves similarity to the target speaker.
+    Voice conversion (VC) transforms source speech into a target voice by preserving the content while replacing the timbre of the source speaker with that of the target speaker. However, timbre information from the source speaker is inherently embedded in the content representations, causing significant timbre leakage and reducing similarity to the target speaker. To address this, we introduce a 	extbf{Universal Semantic Matching (USM)} residual block to a content extractor. The residual block consists of two branches with tunable weights. One is a skip connection to the original content layer, the other is a universal semantic dictionary based Content Feature Re-expression (CFR) module. Specifically, each dictionary entry in the universal semantic dictionary represents a phoneme class, computed statistically using speech from multiple speakers, creating a stable, speaker-independent semantic set. Additionally, we introduce CFR within the USM block to obtain timbre-free and contextual content representations by expressing each content frame as a weighted linear combination of dictionary entries using corresponding phoneme posteriors as weights. Extensive experiments across various VC frameworks demonstrate that our approach effectively mitigates timbre leakage and significantly improves similarity to the target speaker.
                         
                     </p>
                 </div>
@@ -113,31 +113,37 @@
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/0/0_source.wav>
+                                    <source src=samples/vits_hu/src/0.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/0/0_prompt.wav>
+                                    <source src=samples/vits_hu/ref/0.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
-                                BNF<br>
+                                base<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/0/0_base.wav>
+                                    <source src=samples/vits_hu/base/0.wav>
                                 </audio>
                                 <br>
-                                S-Unit<br>
+                                soft<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/0/0_soft.wav>
+                                    <source src=samples/vits_hu/soft/0.wav>
                                 </audio>
                                 <br>
-                                USM<br>
+                                usm<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/0/0_dict.wav>
+                                    <source src=samples/vits_hu/usm/0.wav>
+                                </audio>
+                                <br>
+                                </td><td>
+                                usm*<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/usm*/0.wav>
                                 </audio>
                                 <br>
                                 </td>
@@ -147,42 +153,96 @@
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/1/1_source.wav>
+                                    <source src=samples/vits_hu/src/21.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/1/1_prompt.wav>
+                                    <source src=samples/vits_hu/ref/21.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
-                                BNF<br>
+                                base<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/1/1_base.wav>
+                                    <source src=samples/vits_hu/base/21.wav>
                                 </audio>
                                 <br>
-                                S-Unit<br>
+                                soft<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/1/1_soft.wav>
+                                    <source src=samples/vits_hu/soft/21.wav>
                                 </audio>
                                 <br>
-                                USM<br>
+                                usm<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/1/1_dict.wav>
+                                    <source src=samples/vits_hu/usm/21.wav>
+                                </audio>
+                                <br>
+                                </td><td>
+                                usm*<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/usm*/21.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/src/68.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/ref/68.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                base<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/base/68.wav>
+                                </audio>
+                                <br>
+                                soft<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/soft/68.wav>
+                                </audio>
+                                <br>
+                                usm<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/usm/68.wav>
+                                </audio>
+                                <br>
+                                </td><td>
+                                usm*<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/usm*/68.wav>
                                 </audio>
                                 <br>
                                 </td>
                             </tr>
 
                             <h3 class="post-meta" id="s2s">
-                                PPG
+                                HuBERT
                             </h3>
                         </tbody>
                     </table>
 
+                </div>
+
+                <!-- one experience -->
+                <div class="post-preview">
+                    <h2 class="post-title">
+                        
+                    </h2>
+                    
                     <!-- one table -->
                     <table class="table">
                         <thead>
@@ -198,31 +258,37 @@
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hubert/0/0_source.wav>
+                                    <source src=samples/vits_ppg/src/37.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hubert/0/0_prompt.wav>
+                                    <source src=samples/vits_ppg/ref/37.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
-                                MLF<br>
+                                base<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hubert/0/0_base.wav>
+                                    <source src=samples/vits_ppg/base/37.wav>
                                 </audio>
                                 <br>
-                                S-Unit<br>
+                                soft<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hubert/0/0_soft.wav>
+                                    <source src=samples/vits_ppg/soft/37.wav>
                                 </audio>
                                 <br>
-                                USM<br>
+                                usm<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hubert/0/0_dict.wav>
+                                    <source src=samples/vits_ppg/usm/37.wav>
+                                </audio>
+                                <br>
+                                </td><td>
+                                usm*<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/usm*/37.wav>
                                 </audio>
                                 <br>
                                 </td>
@@ -232,38 +298,84 @@
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hubert/1/1_source.wav>
+                                    <source src=samples/vits_ppg/src/69.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hubert/1/1_prompt.wav>
+                                    <source src=samples/vits_ppg/ref/69.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
-                                MLF<br>
+                                base<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hubert/1/1_base.wav>
+                                    <source src=samples/vits_ppg/base/69.wav>
                                 </audio>
                                 <br>
-                                S-Unit<br>
+                                soft<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hubert/1/1_soft.wav>
+                                    <source src=samples/vits_ppg/soft/69.wav>
                                 </audio>
                                 <br>
-                                USM<br>
+                                usm<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hubert/1/1_dict.wav>
+                                    <source src=samples/vits_ppg/usm/69.wav>
+                                </audio>
+                                <br>
+                                </td><td>
+                                usm*<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/usm*/69.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/src/90.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/ref/90.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                base<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/base/90.wav>
+                                </audio>
+                                <br>
+                                soft<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/soft/90.wav>
+                                </audio>
+                                <br>
+                                usm<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/usm/90.wav>
+                                </audio>
+                                <br>
+                                </td><td>
+                                usm*<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_ppg/usm*/90.wav>
                                 </audio>
                                 <br>
                                 </td>
                             </tr>
 
                             <h3 class="post-meta" id="s2s">
-                                HuBERT
+                                PPG
                             </h3>
                         </tbody>
                     </table>
@@ -291,31 +403,31 @@
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/lm_ppg/0/0_source.wav>
+                                    <source src=samples/lm/src/44.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/lm_ppg/0/0-prompt.wav>
+                                    <source src=samples/lm/ref/44.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
-                                BNF<br>
+                                base<br>
                                 <audio controls preload="none">
-                                    <source src=samples/lm_ppg/0/0_base.wav>
+                                    <source src=samples/lm/base/44.wav>
                                 </audio>
                                 <br>
-                                S-Unit<br>
+                                soft<br>
                                 <audio controls preload="none">
-                                    <source src=samples/lm_ppg/0/0_soft.wav>
+                                    <source src=samples/lm/soft/44.wav>
                                 </audio>
                                 <br>
-                                USM<br>
+                                usm<br>
                                 <audio controls preload="none">
-                                    <source src=samples/lm_ppg/0/0_dict.wav>
+                                    <source src=samples/lm/usm/44.wav>
                                 </audio>
                                 <br>
                                 </td>
@@ -325,31 +437,65 @@
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/lm_ppg/1/1_source.wav>
+                                    <source src=samples/lm/src/7.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/lm_ppg/1/1_prompt.wav>
+                                    <source src=samples/lm/ref/7.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
-                                BNF<br>
+                                base<br>
                                 <audio controls preload="none">
-                                    <source src=samples/lm_ppg/1/1_base.wav>
+                                    <source src=samples/lm/base/7.wav>
                                 </audio>
                                 <br>
-                                S-Unit<br>
+                                soft<br>
                                 <audio controls preload="none">
-                                    <source src=samples/lm_ppg/1/1_soft.wav>
+                                    <source src=samples/lm/soft/7.wav>
                                 </audio>
                                 <br>
-                                USM<br>
+                                usm<br>
                                 <audio controls preload="none">
-                                    <source src=samples/lm_ppg/1/1_dict.wav>
+                                    <source src=samples/lm/usm/7.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm/src/76.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm/ref/76.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                base<br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm/base/76.wav>
+                                </audio>
+                                <br>
+                                soft<br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm/soft/76.wav>
+                                </audio>
+                                <br>
+                                usm<br>
+                                <audio controls preload="none">
+                                    <source src=samples/lm/usm/76.wav>
                                 </audio>
                                 <br>
                                 </td>
@@ -357,91 +503,6 @@
 
                             <h3 class="post-meta" id="s2s">
                                 PPG
-                            </h3>
-                        </tbody>
-                    </table>
-
-                    <!-- one table -->
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Source</th>
-                                <th scope="col">Target</th>
-                                <th scope="col">Conversion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                            <tr>
-                                <td>
-                                <br>
-                                <audio controls preload="none">
-                                    <source src=samples/lm_hubert/0/0_source.wav>
-                                </audio>
-                                <br>
-                                </td>
-                                <td>
-                                <br>
-                                <audio controls preload="none">
-                                    <source src=samples/lm_hubert/0/0_prompt.wav>
-                                </audio>
-                                <br>
-                                </td>
-                                <td>
-                                MLF<br>
-                                <audio controls preload="none">
-                                    <source src=samples/lm_hubert/0/0_base.wav>
-                                </audio>
-                                <br>
-                                S-Unit<br>
-                                <audio controls preload="none">
-                                    <source src=samples/lm_hubert/0/0_soft.wav>
-                                </audio>
-                                <br>
-                                USM<br>
-                                <audio controls preload="none">
-                                    <source src=samples/lm_hubert/0/0_dict.wav>
-                                </audio>
-                                <br>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                <br>
-                                <audio controls preload="none">
-                                    <source src=samples/lm_hubert/1/1_source.wav>
-                                </audio>
-                                <br>
-                                </td>
-                                <td>
-                                <br>
-                                <audio controls preload="none">
-                                    <source src=samples/lm_hubert/1/1_prompt.wav>
-                                </audio>
-                                <br>
-                                </td>
-                                <td>
-                                MLF<br>
-                                <audio controls preload="none">
-                                    <source src=samples/lm_hubert/1/1_base.wav>
-                                </audio>
-                                <br>
-                                S-Unit<br>
-                                <audio controls preload="none">
-                                    <source src=samples/lm_hubert/1/1_soft.wav>
-                                </audio>
-                                <br>
-                                USM<br>
-                                <audio controls preload="none">
-                                    <source src=samples/lm_hubert/1/1_dict.wav>
-                                </audio>
-                                <br>
-                                </td>
-                            </tr>
-
-                            <h3 class="post-meta" id="s2s">
-                                HuBERT
                             </h3>
                         </tbody>
                     </table>
@@ -469,65 +530,31 @@
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/diffusion/M2F/src/M2F-0.wav>
+                                    <source src=samples/diffusion/src/F2F-189.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/diffusion/M2F/ref/M2F-0.wav>
+                                    <source src=samples/diffusion/ref/F2F-189.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
-                                BNF<br>
+                                base<br>
                                 <audio controls preload="none">
-                                    <source src=samples/diffusion/M2F/0/M2F-0.wav>
+                                    <source src=samples/diffusion/base/F2F-189.wav>
                                 </audio>
                                 <br>
-                                S-Unit<br>
+                                soft<br>
                                 <audio controls preload="none">
-                                    <source src=samples/diffusion/M2F/1/M2F-0.wav>
+                                    <source src=samples/diffusion/soft/F2F-189.wav>
                                 </audio>
                                 <br>
-                                USM<br>
+                                usm<br>
                                 <audio controls preload="none">
-                                    <source src=samples/diffusion/M2F/2/M2F-0.wav>
-                                </audio>
-                                <br>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                <br>
-                                <audio controls preload="none">
-                                    <source src=samples/diffusion/M2F/src/M2F-62.wav>
-                                </audio>
-                                <br>
-                                </td>
-                                <td>
-                                <br>
-                                <audio controls preload="none">
-                                    <source src=samples/diffusion/M2F/ref/M2F-62.wav>
-                                </audio>
-                                <br>
-                                </td>
-                                <td>
-                                BNF<br>
-                                <audio controls preload="none">
-                                    <source src=samples/diffusion/M2F/0/M2F-62.wav>
-                                </audio>
-                                <br>
-                                S-Unit<br>
-                                <audio controls preload="none">
-                                    <source src=samples/diffusion/M2F/1/M2F-62.wav>
-                                </audio>
-                                <br>
-                                USM<br>
-                                <audio controls preload="none">
-                                    <source src=samples/diffusion/M2F/2/M2F-62.wav>
+                                    <source src=samples/diffusion/usm/F2F-189.wav>
                                 </audio>
                                 <br>
                                 </td>
@@ -537,65 +564,31 @@
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/diffusion/M2F/src/M2F-65.wav>
+                                    <source src=samples/diffusion/src/M2F-211.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/diffusion/M2F/ref/M2F-65.wav>
+                                    <source src=samples/diffusion/ref/M2F-211.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
-                                BNF<br>
+                                base<br>
                                 <audio controls preload="none">
-                                    <source src=samples/diffusion/M2F/0/M2F-65.wav>
+                                    <source src=samples/diffusion/base/M2F-211.wav>
                                 </audio>
                                 <br>
-                                S-Unit<br>
+                                soft<br>
                                 <audio controls preload="none">
-                                    <source src=samples/diffusion/M2F/1/M2F-65.wav>
+                                    <source src=samples/diffusion/soft/M2F-211.wav>
                                 </audio>
                                 <br>
-                                USM<br>
+                                usm<br>
                                 <audio controls preload="none">
-                                    <source src=samples/diffusion/M2F/2/M2F-65.wav>
-                                </audio>
-                                <br>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                <br>
-                                <audio controls preload="none">
-                                    <source src=samples/diffusion/F2M/src/F2M-0.wav>
-                                </audio>
-                                <br>
-                                </td>
-                                <td>
-                                <br>
-                                <audio controls preload="none">
-                                    <source src=samples/diffusion/F2M/ref/F2M-0.wav>
-                                </audio>
-                                <br>
-                                </td>
-                                <td>
-                                BNF<br>
-                                <audio controls preload="none">
-                                    <source src=samples/diffusion/F2M/0/F2M-0.wav>
-                                </audio>
-                                <br>
-                                S-Unit<br>
-                                <audio controls preload="none">
-                                    <source src=samples/diffusion/F2M/1/F2M-0.wav>
-                                </audio>
-                                <br>
-                                USM<br>
-                                <audio controls preload="none">
-                                    <source src=samples/diffusion/F2M/2/F2M-0.wav>
+                                    <source src=samples/diffusion/usm/M2F-211.wav>
                                 </audio>
                                 <br>
                                 </td>
@@ -605,65 +598,31 @@
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/diffusion/F2M/src/F2M-12.wav>
+                                    <source src=samples/diffusion/src/M2M-35.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/diffusion/F2M/ref/F2M-12.wav>
+                                    <source src=samples/diffusion/ref/M2M-35.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
-                                BNF<br>
+                                base<br>
                                 <audio controls preload="none">
-                                    <source src=samples/diffusion/F2M/0/F2M-12.wav>
+                                    <source src=samples/diffusion/base/M2M-35.wav>
                                 </audio>
                                 <br>
-                                S-Unit<br>
+                                soft<br>
                                 <audio controls preload="none">
-                                    <source src=samples/diffusion/F2M/1/F2M-12.wav>
+                                    <source src=samples/diffusion/soft/M2M-35.wav>
                                 </audio>
                                 <br>
-                                USM<br>
+                                usm<br>
                                 <audio controls preload="none">
-                                    <source src=samples/diffusion/F2M/2/F2M-12.wav>
-                                </audio>
-                                <br>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                <br>
-                                <audio controls preload="none">
-                                    <source src=samples/diffusion/F2M/src/F2M-31.wav>
-                                </audio>
-                                <br>
-                                </td>
-                                <td>
-                                <br>
-                                <audio controls preload="none">
-                                    <source src=samples/diffusion/F2M/ref/F2M-31.wav>
-                                </audio>
-                                <br>
-                                </td>
-                                <td>
-                                BNF<br>
-                                <audio controls preload="none">
-                                    <source src=samples/diffusion/F2M/0/F2M-31.wav>
-                                </audio>
-                                <br>
-                                S-Unit<br>
-                                <audio controls preload="none">
-                                    <source src=samples/diffusion/F2M/1/F2M-31.wav>
-                                </audio>
-                                <br>
-                                USM<br>
-                                <audio controls preload="none">
-                                    <source src=samples/diffusion/F2M/2/F2M-31.wav>
+                                    <source src=samples/diffusion/usm/M2M-35.wav>
                                 </audio>
                                 <br>
                                 </td>
