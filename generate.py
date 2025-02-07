@@ -190,7 +190,7 @@ def generate_exper4(folder_dir,experiment_name,chosen_files=None,tag="PPG",mappe
     src_wavs += [[(None,wav_path)] for wav_path in find_src_wavs]
     ref_wavs += [[(None,wav_path.replace("src","ref"))] for wav_path in find_src_wavs]
     find_folders = os.listdir(subfolder_dir)
-    find_folders = [f for f in find_folders if f != "src" and f != "ref"]
+    find_folders = [f for f in find_folders if f != "src" and f != "ref" and f != ".DS_Store"]
     #find_folders = [f.replace("_star","*") for f in find_folders]
     find_folders.sort()
     #cov_wavs +=  [[(name.replace("_star","*"),wav_path.replace("src",name)) for idx,name in enumerate(find_folders)] for wav_path in find_src_wavs]
