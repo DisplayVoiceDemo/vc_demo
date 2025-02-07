@@ -2,7 +2,7 @@ from temple import one_audio_block_temple, table_temple, experiment_temple, page
 import os
 import glob
 abstract = """
-    Voice conversion (VC) transforms source speech into a target voice by preserving the content while replacing the timbre of the source speaker with that of the target speaker. However, timbre information from the source speaker is inherently embedded in the content representations, causing significant timbre leakage and reducing similarity to the target speaker. To address this, we propose \textbf{Universal Semantic Matching (USM)}, a general method for building a universal semantic dictionary with a content extractor. Each dictionary entry represents a phoneme class, computed statistically using speech from multiple speakers, creating a stable, speaker-independent semantic set. Additionally, we introduce Content Feature Re-expression (CFR) within USM to obtain timbre-free and contextual content representations by expressing each content frame as a weighted linear combination of dictionary entries using corresponding phoneme posteriors as weights. Extensive experiments across various VC frameworks demonstrate that our approach effectively mitigates timbre leakage and significantly improves similarity to the target speaker.
+    Voice conversion (VC) transforms source speech into a target voice by preserving the content while replacing the timbre of the source speaker with that of the target speaker. However, timbre information from the source speaker is inherently embedded in the content representations, causing significant timbre leakage and reducing similarity to the target speaker. To address this, we introduce a Universal Semantic Matching (USM) residual block to a content extractor. The residual block consists of two branches with tunable weights. One is a skip connection to the original content layer, the other is a universal semantic dictionary based Content Feature Re-expression (CFR) module. Specifically, each dictionary entry in the universal semantic dictionary represents a phoneme class, computed statistically using speech from multiple speakers, creating a stable, speaker-independent semantic set. Additionally, we introduce CFR within the USM block to obtain timbre-free and contextual content representations by expressing each content frame as a weighted linear combination of dictionary entries using corresponding phoneme posteriors as weights. Extensive experiments across various VC frameworks demonstrate that our approach effectively mitigates timbre leakage and significantly improves similarity to the target speaker.
                         """
 def one_audio_block(path,name=None):
     if not name:
@@ -173,39 +173,136 @@ def generate_exper3(folder_dirs,model_name_mapper,experiment_name):
         )
     return exper_html
 
+
+
+def generate_exper4(folder_dir,experiment_name,chosen_files=None,tag="PPG",mapper=None):
+    exper_html = ""
+    src_wavs = []
+    ref_wavs = []
+    cov_wavs = []
+    
+    subfolder_dir = folder_dir
+    find_src_wavs = os.listdir(os.path.join(subfolder_dir,"src"))
+    find_src_wavs = [os.path.join(subfolder_dir,"src",wav_path) for wav_path in find_src_wavs]
+    if chosen_files is not None:
+        find_src_wavs = [wav_path for wav_path in find_src_wavs if os.path.basename(wav_path) in chosen_files]
+    find_src_wavs.sort()
+    src_wavs += [[(None,wav_path)] for wav_path in find_src_wavs]
+    ref_wavs += [[(None,wav_path.replace("src","ref"))] for wav_path in find_src_wavs]
+    find_folders = os.listdir(subfolder_dir)
+    find_folders = [f for f in find_folders if f != "src" and f != "ref"]
+    #find_folders = [f.replace("_star","*") for f in find_folders]
+    find_folders.sort()
+    #cov_wavs +=  [[(name.replace("_star","*"),wav_path.replace("src",name)) for idx,name in enumerate(find_folders)] for wav_path in find_src_wavs]
+    for wav_path in find_src_wavs:
+        this_cov_wavs = []
+        for idx,name in enumerate(find_folders) :
+            new_wav_path = wav_path.replace("src",name)
+            if mapper is not None:
+                for old,new in mapper:
+                    name = name.replace(old,new)
+            this_cov_wavs.append((name,new_wav_path))
+        cov_wavs.append(this_cov_wavs)
+    # 递归遍历folder_dir，如果文件的文件名不在chosen_files 就删掉
+    for root, dirs, files in os.walk(subfolder_dir):
+        for file in files:
+            if file not in chosen_files:
+                os.remove(os.path.join(root, file))
+                print("Delete {}".format(os.path.join(root, file)))
+    exper_html += one_table_block(
+        src_info=src_wavs,
+        ref_info=ref_wavs,
+        conversion_info=cov_wavs,
+        tag = tag
+    )
+    exper_html = experiment_temple.format(
+        experiment_name=experiment_name,
+        tables = exper_html
+        )
+    return exper_html
+
 if __name__ == "__main__":
     exper_html = ""
-    exper_html += generate_exper3(
-        folder_dirs=["samples/vits_ppg","samples/vits_hubert"],
-        model_name_mapper=[
-            ("_base","BNF"),
-            ("_soft","S-Unit"),
-            ("_dict","USM")
-        ],
-        experiment_name = "VITS"
-    )
+    # exper_html += generate_exper3(
+    #     folder_dirs=["samples/vits_ppg","samples/vits_hubert"],
+    #     model_name_mapper=[
+    #         ("_base","BNF"),
+    #         ("_soft","S-Unit"),
+    #         ("_dict","USM")
+    #     ],
+    #     experiment_name = "VITS"
+    # )
 
-    exper_html += generate_exper3(
-        folder_dirs=["samples/lm_ppg","samples/lm_hubert"],
-        model_name_mapper=[
-            ("_base","BNF"),
-            ("_soft","S-Unit"),
-            ("_dict","USM")
+    # exper_html += generate_exper3(
+    #     folder_dirs=["samples/lm_ppg","samples/lm_hubert"],
+    #     model_name_mapper=[
+    #         ("_base","BNF"),
+    #         ("_soft","S-Unit"),
+    #         ("_dict","USM")
+    #     ],
+    #     experiment_name = "LM Model"
+    # )
+        
+    # exper_html += generate_exper2(
+    #     folder_dir="samples/diffusion",
+    #     model_name_list=["BNF","S-Unit","USM"],
+    #     experiment_name = "Diffusion Model"
+    # )
+    exper_html += generate_exper4(
+        folder_dir="samples/vits_hu",
+        experiment_name = "VITS",
+        chosen_files=['0.wav','35.wav',"61.wav","96.wav"],
+        tag="HuBERT",
+        mapper=[
+            ("base","MLF"),
+            ("soft","S-Unit"),
+            ("usm","USM"),
+            ("_star","*")
         ],
-        experiment_name = "LM Model"
+    )
+    
+    exper_html += generate_exper4(
+        folder_dir="samples/vits_ppg",
+        experiment_name = "",
+        chosen_files = ["71.wav","66.wav","62.wav"],
+        tag="PPG",
+        mapper=[
+            ("base","BNF"),
+            ("soft","S-Unit"),
+            ("usm","USM"),
+            ("_star","*")
+        ],
+    )
+    
+    exper_html += generate_exper4(
+        folder_dir="samples/lm",
+        experiment_name ="LM Model",
+        chosen_files = ["16.wav","23.wav","38.wav","55.wav"],
+        mapper=[
+            ("base","BNF"),
+            ("soft","S-Unit"),
+            ("usm","USM"),
+            ("_star","*")
+        ],
     )
         
-    exper_html += generate_exper2(
+    exper_html += generate_exper4(
         folder_dir="samples/diffusion",
-        model_name_list=["BNF","S-Unit","USM"],
-        experiment_name = "Diffusion Model"
+        experiment_name ="Diffusion Model",
+        chosen_files=["F2F-189.wav","F2M-4.wav","M2M-35.wav","M2F-14.wav"],
+        mapper=[
+            ("base","BNF"),
+            ("soft","S-Unit"),
+            ("usm","USM"),
+            ("_star","*")
+        ],
     )
-
+    
     put_into_page(
         exper_html,
         title="VC Demo Page",
         big_header="VC Demo",
-        sub_header="Mitigating Timbre Leakage with Universal Semantic Mapping for Voice Conversion",
+        sub_header="Mitigating Timbre Leakage with Universal Semantic Mapping Residual Block for Voice Conversion",
         abstract=abstract,
         html_path="index.html"
     )

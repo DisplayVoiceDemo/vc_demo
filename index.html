@@ -84,7 +84,7 @@
                     </h2>
                     <p>
                         
-    Voice conversion (VC) transforms source speech into a target voice by preserving the content while replacing the timbre of the source speaker with that of the target speaker. However, timbre information from the source speaker is inherently embedded in the content representations, causing significant timbre leakage and reducing similarity to the target speaker. To address this, we introduce a 	extbf{Universal Semantic Matching (USM)} residual block to a content extractor. The residual block consists of two branches with tunable weights. One is a skip connection to the original content layer, the other is a universal semantic dictionary based Content Feature Re-expression (CFR) module. Specifically, each dictionary entry in the universal semantic dictionary represents a phoneme class, computed statistically using speech from multiple speakers, creating a stable, speaker-independent semantic set. Additionally, we introduce CFR within the USM block to obtain timbre-free and contextual content representations by expressing each content frame as a weighted linear combination of dictionary entries using corresponding phoneme posteriors as weights. Extensive experiments across various VC frameworks demonstrate that our approach effectively mitigates timbre leakage and significantly improves similarity to the target speaker.
+    Voice conversion (VC) transforms source speech into a target voice by preserving the content while replacing the timbre of the source speaker with that of the target speaker. However, timbre information from the source speaker is inherently embedded in the content representations, causing significant timbre leakage and reducing similarity to the target speaker. To address this, we introduce a Universal Semantic Matching (USM) residual block to a content extractor. The residual block consists of two branches with tunable weights. One is a skip connection to the original content layer, the other is a universal semantic dictionary based Content Feature Re-expression (CFR) module. Specifically, each dictionary entry in the universal semantic dictionary represents a phoneme class, computed statistically using speech from multiple speakers, creating a stable, speaker-independent semantic set. Additionally, we introduce CFR within the USM block to obtain timbre-free and contextual content representations by expressing each content frame as a weighted linear combination of dictionary entries using corresponding phoneme posteriors as weights. Extensive experiments across various VC frameworks demonstrate that our approach effectively mitigates timbre leakage and significantly improves similarity to the target speaker.
                         
                     </p>
                 </div>
@@ -125,6 +125,11 @@
                                 <br>
                                 </td>
                                 <td>
+                                .DS_Store<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/.DS_Store/0.wav>
+                                </audio>
+                                <br>
                                 MLF<br>
                                 <audio controls preload="none">
                                     <source src=samples/vits_hu/base/0.wav>
@@ -135,12 +140,12 @@
                                     <source src=samples/vits_hu/soft/0.wav>
                                 </audio>
                                 <br>
+                                </td><td>
                                 USM<br>
                                 <audio controls preload="none">
                                     <source src=samples/vits_hu/usm/0.wav>
                                 </audio>
                                 <br>
-                                </td><td>
                                 USM*<br>
                                 <audio controls preload="none">
                                     <source src=samples/vits_hu/usm_star/0.wav>
@@ -153,37 +158,42 @@
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hu/src/21.wav>
+                                    <source src=samples/vits_hu/src/35.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hu/ref/21.wav>
+                                    <source src=samples/vits_hu/ref/35.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
+                                .DS_Store<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/.DS_Store/35.wav>
+                                </audio>
+                                <br>
                                 MLF<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hu/base/21.wav>
+                                    <source src=samples/vits_hu/base/35.wav>
                                 </audio>
                                 <br>
                                 S-Unit<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hu/soft/21.wav>
-                                </audio>
-                                <br>
-                                USM<br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_hu/usm/21.wav>
+                                    <source src=samples/vits_hu/soft/35.wav>
                                 </audio>
                                 <br>
                                 </td><td>
+                                USM<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/usm/35.wav>
+                                </audio>
+                                <br>
                                 USM*<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hu/usm_star/21.wav>
+                                    <source src=samples/vits_hu/usm_star/35.wav>
                                 </audio>
                                 <br>
                                 </td>
@@ -193,37 +203,87 @@
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hu/src/68.wav>
+                                    <source src=samples/vits_hu/src/61.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hu/ref/68.wav>
+                                    <source src=samples/vits_hu/ref/61.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
+                                .DS_Store<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/.DS_Store/61.wav>
+                                </audio>
+                                <br>
                                 MLF<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hu/base/68.wav>
+                                    <source src=samples/vits_hu/base/61.wav>
                                 </audio>
                                 <br>
                                 S-Unit<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hu/soft/68.wav>
-                                </audio>
-                                <br>
-                                USM<br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_hu/usm/68.wav>
+                                    <source src=samples/vits_hu/soft/61.wav>
                                 </audio>
                                 <br>
                                 </td><td>
+                                USM<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/usm/61.wav>
+                                </audio>
+                                <br>
                                 USM*<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_hu/usm_star/68.wav>
+                                    <source src=samples/vits_hu/usm_star/61.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/src/96.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/ref/96.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                .DS_Store<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/.DS_Store/96.wav>
+                                </audio>
+                                <br>
+                                MLF<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/base/96.wav>
+                                </audio>
+                                <br>
+                                S-Unit<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/soft/96.wav>
+                                </audio>
+                                <br>
+                                </td><td>
+                                USM<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/usm/96.wav>
+                                </audio>
+                                <br>
+                                USM*<br>
+                                <audio controls preload="none">
+                                    <source src=samples/vits_hu/usm_star/96.wav>
                                 </audio>
                                 <br>
                                 </td>
@@ -258,37 +318,37 @@
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/src/11.wav>
+                                    <source src=samples/vits_ppg/src/62.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/ref/11.wav>
+                                    <source src=samples/vits_ppg/ref/62.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
                                 BNF<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/base/11.wav>
+                                    <source src=samples/vits_ppg/base/62.wav>
                                 </audio>
                                 <br>
                                 S-Unit<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/soft/11.wav>
+                                    <source src=samples/vits_ppg/soft/62.wav>
                                 </audio>
                                 <br>
                                 USM<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/usm/11.wav>
+                                    <source src=samples/vits_ppg/usm/62.wav>
                                 </audio>
                                 <br>
                                 </td><td>
                                 USM*<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/usm_star/11.wav>
+                                    <source src=samples/vits_ppg/usm_star/62.wav>
                                 </audio>
                                 <br>
                                 </td>
@@ -298,77 +358,37 @@
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/src/2.wav>
+                                    <source src=samples/vits_ppg/src/66.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
                                 <br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/ref/2.wav>
-                                </audio>
-                                <br>
-                                </td>
-                                <td>
-                                BNF<br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/base/2.wav>
-                                </audio>
-                                <br>
-                                S-Unit<br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/soft/2.wav>
-                                </audio>
-                                <br>
-                                USM<br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/usm/2.wav>
-                                </audio>
-                                <br>
-                                </td><td>
-                                USM*<br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/usm_star/2.wav>
-                                </audio>
-                                <br>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                <br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/src/54.wav>
-                                </audio>
-                                <br>
-                                </td>
-                                <td>
-                                <br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/ref/54.wav>
+                                    <source src=samples/vits_ppg/ref/66.wav>
                                 </audio>
                                 <br>
                                 </td>
                                 <td>
                                 BNF<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/base/54.wav>
+                                    <source src=samples/vits_ppg/base/66.wav>
                                 </audio>
                                 <br>
                                 S-Unit<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/soft/54.wav>
+                                    <source src=samples/vits_ppg/soft/66.wav>
                                 </audio>
                                 <br>
                                 USM<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/usm/54.wav>
+                                    <source src=samples/vits_ppg/usm/66.wav>
                                 </audio>
                                 <br>
                                 </td><td>
                                 USM*<br>
                                 <audio controls preload="none">
-                                    <source src=samples/vits_ppg/usm_star/54.wav>
+                                    <source src=samples/vits_ppg/usm_star/66.wav>
                                 </audio>
                                 <br>
                                 </td>
@@ -409,86 +429,6 @@
                                 USM*<br>
                                 <audio controls preload="none">
                                     <source src=samples/vits_ppg/usm_star/71.wav>
-                                </audio>
-                                <br>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                <br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/src/81.wav>
-                                </audio>
-                                <br>
-                                </td>
-                                <td>
-                                <br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/ref/81.wav>
-                                </audio>
-                                <br>
-                                </td>
-                                <td>
-                                BNF<br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/base/81.wav>
-                                </audio>
-                                <br>
-                                S-Unit<br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/soft/81.wav>
-                                </audio>
-                                <br>
-                                USM<br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/usm/81.wav>
-                                </audio>
-                                <br>
-                                </td><td>
-                                USM*<br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/usm_star/81.wav>
-                                </audio>
-                                <br>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                <br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/src/86.wav>
-                                </audio>
-                                <br>
-                                </td>
-                                <td>
-                                <br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/ref/86.wav>
-                                </audio>
-                                <br>
-                                </td>
-                                <td>
-                                BNF<br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/base/86.wav>
-                                </audio>
-                                <br>
-                                S-Unit<br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/soft/86.wav>
-                                </audio>
-                                <br>
-                                USM<br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/usm/86.wav>
-                                </audio>
-                                <br>
-                                </td><td>
-                                USM*<br>
-                                <audio controls preload="none">
-                                    <source src=samples/vits_ppg/usm_star/86.wav>
                                 </audio>
                                 <br>
                                 </td>
@@ -743,6 +683,40 @@
                                 USM<br>
                                 <audio controls preload="none">
                                     <source src=samples/diffusion/usm/F2M-4.wav>
+                                </audio>
+                                <br>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/src/M2F-14.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                <br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/ref/M2F-14.wav>
+                                </audio>
+                                <br>
+                                </td>
+                                <td>
+                                BNF<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/base/M2F-14.wav>
+                                </audio>
+                                <br>
+                                S-Unit<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/soft/M2F-14.wav>
+                                </audio>
+                                <br>
+                                USM<br>
+                                <audio controls preload="none">
+                                    <source src=samples/diffusion/usm/M2F-14.wav>
                                 </audio>
                                 <br>
                                 </td>
