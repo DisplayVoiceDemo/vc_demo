@@ -289,7 +289,7 @@ if __name__ == "__main__":
     exper_html += generate_exper4(
         folder_dir="samples/diffusion",
         experiment_name ="Diffusion Model",
-        chosen_files=["F2F-189.wav","F2M-4.wav","M2M-35.wav"],
+        chosen_files=["F2F-225.wav","F2M-96.wav","M2F-30.wav"],
         mapper=[
             ("base","BNF"),
             ("soft","S-Unit"),
