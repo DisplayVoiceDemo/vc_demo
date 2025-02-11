@@ -251,7 +251,7 @@ if __name__ == "__main__":
     exper_html += generate_exper4(
         folder_dir="samples/vits_hu",
         experiment_name = "VITS",
-        chosen_files=['0.wav','35.wav',"61.wav","96.wav"],
+        chosen_files=['35.wav',"61.wav","96.wav"],
         tag="HuBERT",
         mapper=[
             ("base","MLF"),
@@ -277,7 +277,7 @@ if __name__ == "__main__":
     exper_html += generate_exper4(
         folder_dir="samples/lm",
         experiment_name ="LM Model",
-        chosen_files = ["16.wav","23.wav","38.wav","55.wav"],
+        chosen_files = ["200.wav","656.wav","746.wav"],
         mapper=[
             ("base","BNF"),
             ("soft","S-Unit"),
